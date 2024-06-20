@@ -6,12 +6,14 @@
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:46:05 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/20 18:50:36 by lmedrano         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:52:44 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
 # define ITER_HPP
+
+#include <iostream>
 
 template<typename T, typename Fct>
 void iter(T *array, int len, Fct fct)
@@ -21,5 +23,19 @@ void iter(T *array, int len, Fct fct)
 		fct(array[i]);
 	}
 }
+
+template<typename T>
+void	printElem(T elem)
+{
+	std::cout << elem << std::endl;
+}
+
+template<typename T>
+void	addOne(T elem)
+{
+	elem = elem + 1;
+	std::cout << elem << std::endl;
+}
+
 
 #endif /* ITER_HPP */
