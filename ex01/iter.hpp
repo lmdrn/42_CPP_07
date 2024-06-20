@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/20 18:34:53 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/20 18:45:36 by lmedrano         ###   ########.fr       */
+/*   Created: 2024/06/20 18:46:05 by lmedrano          #+#    #+#             */
+/*   Updated: 2024/06/20 18:50:36 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SWAP_HPP
-# define SWAP_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-template<typename T>
-void swap(T& a, T& b)
+template<typename T, typename Fct>
+void iter(T *array, int len, Fct fct)
 {
-	T tmp;
-
-	tmp = b;
-	b = a;
-	a = tmp;
+	for (int i = 0; i < len; i++)
+	{
+		fct(array[i]);
+	}
 }
 
-#endif /* SWAP_HPP */
+#endif /* ITER_HPP */
