@@ -12,56 +12,54 @@
 
 #include "Array.hpp"
 
-int main(void)
+#define MAX_VAL 750
+int main(int, char**)
 {
-	try
-	{
-		// Default constructor
-        	Array<int> emptyArray;
-		std::cout << "Empty array size: " << emptyArray.size() << std::endl;
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-		// Constructor with size
-		unsigned int n = 5;
-		Array<int> intArray(n);
-		std::cout << "intArray size: " << intArray.size() << std::endl;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-		// Fill array and display elements
-		for (unsigned int i = 0; i < intArray.size(); ++i) {
-		    intArray[i] = i * 2;
-		    std::cout << "intArray[" << i << "] = " << intArray[i] << std::endl;
-		}
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;
 
-		// Copy constructor
-		Array<int> copyArray(intArray);
-		std::cout << "copyArray size: " << copyArray.size() << std::endl;
-
-		// Display copied array elements
-		for (unsigned int i = 0; i < copyArray.size(); ++i) {
-		    std::cout << "copyArray[" << i << "] = " << copyArray[i] << std::endl;
-		}
-
-		// Modify the original array and ensure copy is not affected
-		intArray[0] = 100;
-		std::cout << "Modified intArray[0]: " << intArray[0] << std::endl;
-		std::cout << "Unchanged copyArray[0]: " << copyArray[0] << std::endl;
-
-		// Assignment operator
-		Array<int> assignedArray;
-		assignedArray = intArray;
-		std::cout << "assignedArray size: " << assignedArray.size() << std::endl;
-
-		// Display assigned array elements
-		for (unsigned int i = 0; i < assignedArray.size(); ++i) {
-		    std::cout << "assignedArray[" << i << "] = " << assignedArray[i] << std::endl;
-		}
-
-		// Test out of bounds access
-		std::cout << "Trying to access out of bounds element:" << std::endl;
-		std::cout << intArray[n] << std::endl; // This should throw an exception
-	}
-	catch (const std::exception& error)
-	{
-		std::cerr << "Exception: " << error.what() << std::endl;
-	}
-	return (0);
+    return (0);
 }
