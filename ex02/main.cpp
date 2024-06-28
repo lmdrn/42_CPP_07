@@ -6,7 +6,7 @@
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 20:25:27 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/20 21:30:25 by lmedrano         ###   ########.fr       */
+/*   Updated: 2024/06/28 15:03:24 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+
+    for (unsigned int i = 0; i < numbers.size(); i++)
+    {
+	    std::cout << numbers[i] << " ";
+    }
+    std::cout << std::endl;
+    
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
@@ -34,25 +40,27 @@ int main(int, char**)
     {
         if (mirror[i] != numbers[i])
         {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
+            std::cerr << RED << "didn't save the same value!!" << RESET << std::endl;
+            return (1);
         }
     }
+    //check with out of bounds index
     try
     {
         numbers[-2] = 0;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << RED << e.what() << RESET << '\n';
     }
+    //try with max_value
     try
     {
         numbers[MAX_VAL] = 0;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << RED << e.what() << RESET << '\n';
     }
 
     for (int i = 0; i < MAX_VAL; i++)
