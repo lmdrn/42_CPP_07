@@ -6,7 +6,7 @@
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:30:31 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/20 18:40:23 by lmedrano         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:25:44 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 template<typename T>
 T max(T a, T b)
 {
-	return (a > b ? a : b);
+	if (a > b)
+		return (a);
+	else if (a < b)
+		return (b);
+	else if (a == b)
+		return (b);
 }
 
 #endif /* MAX_HPP */
