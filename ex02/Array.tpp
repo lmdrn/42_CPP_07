@@ -6,7 +6,7 @@
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 21:10:43 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/28 14:57:28 by lmedrano         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:04:00 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdexcept>
 #include <iostream>
+#include <sstream>
 
 template<typename T>
 Array<T>::Array() : _size(0), _data(NULL) 
@@ -83,6 +84,17 @@ template<typename T>
 unsigned int Array<T>::size() const
 {
 	return (_size);
+}
+
+template<typename T>
+std::string	Array<T>::print() const
+{
+	std::ostringstream finalString;
+	for (unsigned int i = 0; i < _size;i++)
+	{
+		finalString << _data[i] << " ";
+	}
+	return (finalString.str());
 }
 
 #endif /* ARRAY_TPP */

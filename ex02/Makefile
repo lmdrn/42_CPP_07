@@ -6,7 +6,7 @@
 #    By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 10:48:23 by lmedrano          #+#    #+#              #
-#    Updated: 2024/06/20 21:32:07 by lmedrano         ###   ########.fr        #
+#    Updated: 2024/07/02 12:49:13 by lmedrano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ ORANGE 		= \033[38;5;215m
 GREEN 		= \033[38;5;82m
 RESET 		= \033[0m
 
-SRCS 		= main.cpp Array.tpp
+SRCS 		= main.cpp
 
-DEPS 		= Array.hpp
+DEPS 		= Array.hpp Array.tpp
 
 OBJS 		= ${SRCS:.cpp=.o}
 

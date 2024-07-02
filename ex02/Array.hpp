@@ -6,7 +6,7 @@
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 20:25:56 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/28 14:51:54 by lmedrano         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:01:37 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Array
 		const T& operator[](unsigned int index) const;
 		
 		unsigned int	size() const;
+		std::string	print() const;	
 	
 };
 
