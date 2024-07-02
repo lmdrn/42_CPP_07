@@ -6,7 +6,7 @@
 /*   By: lmedrano <lmedrano@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:30:31 by lmedrano          #+#    #+#             */
-/*   Updated: 2024/06/28 13:25:44 by lmedrano         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:36:26 by lmedrano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ T max(T a, T b)
 {
 	if (a > b)
 		return (a);
-	else if (a < b)
-		return (b);
-	else if (a == b)
+	else
 		return (b);
 }
 
